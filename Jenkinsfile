@@ -4,6 +4,8 @@ pipeline{
     }
     options {
         ansiColor('xterm')
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
 
     }
     environment{
@@ -32,6 +34,23 @@ pipeline{
             steps{
                 script{
                     echo "Unit testing"
+                }
+            }
+        }
+        stage('unit testing'){
+            steps{
+                script{
+                    echo "Unit testing"
+                }
+            }
+        }
+        stage('Sonar Scan'){
+            steps{
+                script{
+                    def scannerHome = tool 'sonar8.0'
+                    withSonarQubeEnv('sonar8.0') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
                 }
             }
         }
