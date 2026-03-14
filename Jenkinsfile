@@ -10,7 +10,7 @@ pipeline{
         appVersion=''
     }
     stages{
-        stage{
+        stage('Read Package.json'){
             steps{
                 script{
                     def packageJSON = readJSON file: 'package.json'
