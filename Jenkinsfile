@@ -28,6 +28,13 @@ pipeline{
                 }
             }
         }
+        stage('unit testing'){
+            steps{
+                script{
+                    echo "Unit testing"
+                }
+            }
+        }
 
     }
     post{
