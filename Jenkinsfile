@@ -37,13 +37,6 @@ pipeline{
                 }
             }
         }
-        stage('unit testing'){
-            steps{
-                script{
-                    echo "Unit testing"
-                }
-            }
-        }
         stage('Sonar Scan'){
             steps{
                 script{
